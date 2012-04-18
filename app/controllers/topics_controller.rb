@@ -1,11 +1,14 @@
 class TopicsController < ApplicationController
 
+  before_filter :login_required, :except => [:index, :show] 
+  before_filter :admin_required, :only => :destroy 
+  
   def show
     @topic = Topic.find(params[:id])
   end
 
   def new
-    @topic = Topic.new
+    @topic = Topic.new(:name => params[:topic][:name], :last_poster_id => current_user.id, :last_post_at => Time.now, :forum_id => params[:forum_id], :user_id => current_user.id)
   end
 
   def create
@@ -13,7 +16,7 @@ class TopicsController < ApplicationController
     if @topic.save
       @topic = Topic.new(:name => params[:topic][:name], :last_poster_id => current_user.id, :last_post_at => Time.now, :forum_id => param[:forum_id])
       
-      if @post.save
+      if @topic.save
         flash[:notice] = "Successfully created topic."
         redirect_to "/forums/#{@topic.forum_id}"
       else
@@ -21,19 +24,6 @@ class TopicsController < ApplicationController
       end
     else
       render :action => 'new'
-    end
-  end
-
-  def edit
-    @topic = Topic.find(params[:id])
-  end
-
-  def update
-    @topic = Topic.find(params[:id])
-    if @topic.update_attributes(params[:topic])
-      redirect_to "/forums/#{@topic.forum_id}" 
-    else
-      render :action => 'edit'
     end
   end
 

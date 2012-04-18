@@ -1,0 +1,4 @@
+.post {width:100%; display:table;}
+.post span {padding:5px; border:3px solid #eee; margin:0;}
+.post span.left {width:150px; background:#eee; border:3px solid #eee; display:table-cell;}
+.post span.right { border:3px solid #eee; display:table-cell;}

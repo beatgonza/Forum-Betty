@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418203959) do
+ActiveRecord::Schema.define(:version => 20120418214502) do
 
   create_table "forums", :force => true do |t|
     t.string   "name"
@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(:version => 20120418203959) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "permission_level"
   end
 
 end

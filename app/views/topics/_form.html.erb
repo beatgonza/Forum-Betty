@@ -7,7 +7,7 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <textarea name="post[content]" cols="80" rows="20"></textarea>
+    <textarea name="post[content]" cols="80" rows="20"><% @post.content %></textarea>
   </p>
  
   <p><%= f.submit "Create"%></p>

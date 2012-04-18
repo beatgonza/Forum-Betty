@@ -1,0 +1,21 @@
+<% title "Forums" %>
+
+<table>
+  <tr>
+    <th width="70%">Forum</th>
+    <th width="30%">Last Post</th>
+  </tr>
+  <% for forum in @forums %>
+    <tr>
+      <td><h4><%= link_to forum.name, forum_path(forum.id) %></h4>
+        <small><%= forum.topics.count %> topics </small><br />
+        <%= forum.description %></td>
+      <td class="right"></td>
+      <td><%= link_to "Show", forum %></td>
+      <td><%= link_to "Edit", edit_forum_path(forum) %></td>
+      <td><%= link_to "Destroy", forum, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Forum", new_forum_path %></p>

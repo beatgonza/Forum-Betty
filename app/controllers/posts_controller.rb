@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     if @post.save
       @topic = Topic.find(@post.topic_id) 
       @topic.update_attributes(:last_poster_id => current_user.id, :last_post_at => Time.now)
-      flash[:notice] => "Successfully created post."
+      flash[:notice] = "Successfully created post."
       redirect_to "/topics/#{@post.topic_id}" 
     else
       render :action => 'new'
@@ -36,6 +36,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @post = Post.find(params[:id])
     admin_or_owner_required(@post.user.id) 
     @post.destroy

@@ -12,4 +12,13 @@
  *= require_tree .
 */
 
+html {
+  background: darkBlue;
+}
+
+body {
+  background: white;
+  padding: 20px;
+}
+
 #header {width:75%; margin:0 auto;}  

@@ -1,7 +1,7 @@
 module ApplicationHelper
  
   def admin?
-    if current_user.permission_level == 1 || current_user.id == 1
+    if !nil || current_user.permission_level == 1 || current_user.id == 1
       return true
     else
       return false

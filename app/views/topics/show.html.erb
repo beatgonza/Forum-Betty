@@ -7,7 +7,7 @@
     <br />
     <% link_to "Edit", edit_post_path(post) %>
     <br />
-    <%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete%>
+    <%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete %>
   </span>
   <span class="right"><%= post.content %></span>
 </div>
@@ -16,5 +16,5 @@
 <p>
   <% if logged_in? %><%= link_to "Reply", "#{new_post_path}?topic=#{@topic.id}" %> |<% end %>
   <% if admin? %><%= link_to "Destroy Topic", @topic, :confirm => 'Are you sure?', :method => :delete %> |<% end %>
-  <%= link_to "View All", topics_path %>
+  <%= link_to "View All", forum_path(@topic.forum_id) %>
 </p>

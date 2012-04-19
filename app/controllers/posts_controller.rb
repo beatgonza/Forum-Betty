@@ -36,7 +36,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @post = Post.find(params[:id])
     admin_or_owner_required(@post.user.id) 
     @post.destroy

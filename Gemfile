@@ -23,6 +23,7 @@ end
 
 gem 'jquery-rails'
 gem "nifty-generators", :group => :development
+gem 'pry', :group => :development
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -40,3 +41,4 @@ gem "nifty-generators", :group => :development
 # gem 'ruby-debug'
 
 gem "mocha", :group => :test
+gem "bcrypt-ruby", :require => "bcrypt"
